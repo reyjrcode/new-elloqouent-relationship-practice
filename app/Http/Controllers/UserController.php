@@ -32,4 +32,9 @@ class UserController extends Controller
         return response()->json(['message' => 'User updated successfully',
     "user"=>$user], 201);
     }
+    public function destroy(User $user){
+        $user ->delete();
+        return response()->json(['message' => 'User deleted successfully',
+        "user"=>$user], 201);
+    }
 }
