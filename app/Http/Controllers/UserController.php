@@ -30,11 +30,12 @@ class UserController extends Controller
         $validated = $request->validated();
         $user->update($validated);
         return response()->json(['message' => 'User updated successfully',
-    "user"=>$user], 201);
+    "user information"=>$user], 201);
     }
     public function destroy(User $user){
         $user ->delete();
         return response()->json(['message' => 'User deleted successfully',
-        "user"=>$user], 201);
+        "user information"=>$user], 201);
     }
+    
 }
