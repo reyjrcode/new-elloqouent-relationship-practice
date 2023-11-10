@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -33,8 +34,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'created_at', 'updated_at'
     ];
 
+ 
     /**
      * The attributes that should be cast.
      *
@@ -48,5 +51,10 @@ class User extends Authenticatable
     public function profile(): HasOne
     {
         return $this->hasOne(Profile::class);
+    }
+
+    public function roles():BelongsToMany
+    {
+        return $this->BelongsToMany(Roles::class);
     }
 }

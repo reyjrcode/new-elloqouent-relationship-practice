@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\OneToMannyController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RolesController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -22,4 +24,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::apiResource('user', UserController::class);
 Route::apiResource('profile', ProfileController::class);
-Route::get('searchprofile/{id}', [ProfileController::class,'getUserRoles']);
+Route::get('searchprofile/{id}', [ProfileController::class, 'getUserRoles']);
+// Roles
+Route::post('saveroles', [RolesController::class, 'store']);
+
+// Many to Many
+Route::post('userroles/save', [OneToMannyController::class,'store']);
+
+Route::get('getuserRoles/{getUsersWithRoles}', [OneToMannyController::class,'getUsersWithRoles']);
+

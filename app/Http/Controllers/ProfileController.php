@@ -19,11 +19,7 @@ class ProfileController extends Controller
             "user information" => $profile
         ], 201);
     }
-//     public function show(User $user)
-// {
-//     $user->load('profile'); // Load the profile relationship
-//     return $user;
-// }
+
 public function getUserRoles($id)
 {
     $user = User::with('profile')->find($id);
