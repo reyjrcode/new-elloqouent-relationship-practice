@@ -38,4 +38,13 @@ class UserController extends Controller
         "user information"=>$user], 201);
     }
     
+    public function getUserWithPostsCommentsAndRates(Request $request, $id){
+        $user = User::with(['posts.comments', 'posts.rates', 'comments'])->find($id);
+
+        if (!$user) {
+            return response()->json(['message' => 'User not found'], 404);
+        }
+
+        return response()->json($user);
+    }
 }
