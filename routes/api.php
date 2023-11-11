@@ -30,6 +30,6 @@ Route::post('saveroles', [RolesController::class, 'store']);
 
 // Many to Many
 Route::post('userroles/save', [OneToMannyController::class, 'store']);
-
 Route::get('getuserRoles/{getUsersWithRoles}', [OneToMannyController::class, 'getUsersWithRoles']);
 Route::put('update/user/roles/{id}', [OneToMannyController::class, 'updateUserRoles']);
+Route::delete('delete/user/{id}',[OneToMannyController::class,'deleteUser']);

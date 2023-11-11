@@ -31,6 +31,12 @@ class OneToMannyController extends Controller
 
         return response()->json(['message' => 'User roles updated', 'user_roles' => $updatedUserRoles]);
     }
+    public function deleteUser($id){
+        $user = User::find($id);
+        $user->roles()->detach();
+        $user->delete();
+        return response()->json(['message' => 'User deleted']);
+    }
     public function getUsersWithRoles($userId)
     {
         $user = User::with('roles')->find($userId);
