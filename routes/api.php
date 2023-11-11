@@ -29,7 +29,7 @@ Route::get('searchprofile/{id}', [ProfileController::class, 'getUserRoles']);
 Route::post('saveroles', [RolesController::class, 'store']);
 
 // Many to Many
-Route::post('userroles/save', [OneToMannyController::class,'store']);
+Route::post('userroles/save', [OneToMannyController::class, 'store']);
 
-Route::get('getuserRoles/{getUsersWithRoles}', [OneToMannyController::class,'getUsersWithRoles']);
-
+Route::get('getuserRoles/{getUsersWithRoles}', [OneToMannyController::class, 'getUsersWithRoles']);
+Route::put('update/user/roles/{id}', [OneToMannyController::class, 'updateUserRoles']);
