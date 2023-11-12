@@ -1,12 +1,16 @@
 <?php
 
 use App\Http\Controllers\CommentsController;
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\OneToMannyController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RateController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VideoController;
+use App\Http\Controllers\VideoFeedBackRateController;
+use App\Http\Controllers\VideoRateController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -41,3 +45,8 @@ Route::post('save/post',[PostController::class,'savepost']);
 Route::post('save/comment',[CommentsController::class,'savecomment']);
 Route::post('save/rate',[RateController::class,'saverate']);
 Route::get('/users/{id}/with-posts-comments-rates',[UserController::class,'getUserWithPostsCommentsAndRates']);
+// videos feedback rate
+Route::post('save/video', [VideoController::class,'saveVideo']);
+Route::post('save/feedback', [FeedbackController::class,'saveVideoFeedBack']);
+Route::post('save/rate', [VideoRateController::class,'saveVideoRate']);
+Route::get('show/video/feedback/rate/{id}', [VideoFeedBackRateController::class,'getUserWithVideoFeedBackAndRates']);

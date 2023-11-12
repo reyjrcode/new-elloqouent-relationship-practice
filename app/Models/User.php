@@ -73,4 +73,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Rate::class);
     }
+
+    public function video():HasMany{
+        return $this->hasMany(Video::class);
+    }
+    public function feedback():HasMany{
+    return $this->hasMany(Feedback::class);
+    }
+    public function videorate():HasMany{
+        return $this->hasMany(VideoRate::class);
+    }
 }

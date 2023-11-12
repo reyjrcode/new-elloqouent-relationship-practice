@@ -17,4 +17,5 @@ class PostController extends Controller
         $post->save();
 
         return response()->json(['message' => 'Post created successfully'], 201);
-    }}
+    }
+}
