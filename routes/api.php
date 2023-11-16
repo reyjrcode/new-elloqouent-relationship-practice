@@ -1,9 +1,18 @@
 <?php
 
+use App\Http\Controllers\BrandController;
+use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\CommentsController;
+use App\Http\Controllers\CountriesController;
+use App\Http\Controllers\CountryController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\OneToMannyController;
+use App\Http\Controllers\OwnerController;
+use App\Http\Controllers\OwnersController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProductBrandOwnerCountry;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RateController;
 use App\Http\Controllers\RolesController;
@@ -11,6 +20,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\VideoFeedBackRateController;
 use App\Http\Controllers\VideoRateController;
+use App\Models\Countries;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -50,3 +60,9 @@ Route::post('save/video', [VideoController::class,'saveVideo']);
 Route::post('save/feedback', [FeedbackController::class,'saveVideoFeedBack']);
 Route::post('save/rate', [VideoRateController::class,'saveVideoRate']);
 Route::get('show/video/feedback/rate/{id}', [VideoFeedBackRateController::class,'getUserWithVideoFeedBackAndRates']);
+// Product Brand Owner Country
+Route::post('save/product',[ProductsController::class,'saveproduct']);
+Route::post('save/brand',[BrandsController::class,'storebrand']);
+Route::post('save/country',[CountriesController::class,'savecountry']);
+Route::post('save/owner',[OwnersController::class,'storeowner']);
+Route::get('show/product/brand/owner/{id}',[ProductBrandOwnerCountry::class,'showdetails']);
