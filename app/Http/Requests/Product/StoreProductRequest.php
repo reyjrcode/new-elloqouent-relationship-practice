@@ -25,8 +25,7 @@ class StoreProductRequest extends FormRequest
             //
             'name'=>'required|max:255',
             'brand_id'=>'required|max:255',
-            'country_id'=>'required|max:255',
-            'owner_id'=>'required|max:255',
+        
         ];
     }
 }

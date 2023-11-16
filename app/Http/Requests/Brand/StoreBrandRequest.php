@@ -24,6 +24,7 @@ class StoreBrandRequest extends FormRequest
         return [
             //
             'name'=>'required|max:255',
+            'country_id'=>'required|max:255',
         ];
     }
 }

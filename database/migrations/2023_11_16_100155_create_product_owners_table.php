@@ -15,11 +15,12 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('owner_id');
+            $table->timestamps();
+
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->foreign('owner_id')->references('id')->on('owners')->onDelete('cascade');
-            // Add other pivot-specific columns if needed
-            $table->timestamps();
         });
+       
     }
 
     /**

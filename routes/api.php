@@ -61,8 +61,8 @@ Route::post('save/feedback', [FeedbackController::class,'saveVideoFeedBack']);
 Route::post('save/rate', [VideoRateController::class,'saveVideoRate']);
 Route::get('show/video/feedback/rate/{id}', [VideoFeedBackRateController::class,'getUserWithVideoFeedBackAndRates']);
 // Product Brand Owner Country
-Route::post('save/product',[ProductsController::class,'saveproduct']);
-Route::post('save/brand',[BrandsController::class,'storebrand']);
-Route::post('save/country',[CountriesController::class,'savecountry']);
-Route::post('save/owner',[OwnersController::class,'storeowner']);
-Route::get('show/product/brand/owner/{id}',[ProductBrandOwnerCountry::class,'showdetails']);
+Route::post('save/product',[ProductController::class,'saveproduct']);
+Route::post('save/brand',[BrandController::class,'storebrand']);
+Route::post('save/country',[CountryController::class,'savecountry']);
+Route::post('save/owner',[OwnerController::class,'storeowner']);
+Route::get('show/product/brand/owner/{id}',[ProductBrandOwnerCountry::class,'completeDetails']);

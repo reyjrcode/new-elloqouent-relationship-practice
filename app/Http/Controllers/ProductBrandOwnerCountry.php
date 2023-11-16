@@ -9,10 +9,11 @@ use Illuminate\Http\Request;
 class ProductBrandOwnerCountry extends Controller
 {
     //
-    public function showdetails($id)
+    
+    public function completeDetails($id)
     {
-        $product = Products::with('brand', 'country', 'owner')->findOrFail($id);
+        $product = Product::with(['brand.country', 'owners'])->find($id);
 
-        return response()->json($product);
+        return response()->json(['product' => $product]);
     }
 }
